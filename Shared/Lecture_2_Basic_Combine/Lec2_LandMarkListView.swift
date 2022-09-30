@@ -40,49 +40,76 @@ struct Lec2_LandMarkListView: View {
         modelData.landmakrs.firstIndex(where: { $0.id == selectedLandmark?.id })
     }
     
-    var body: some View {
-        NavigationView {
-            List(selection: $selectedLandmark) {
-                ForEach(filterLandMark) { landmark in
-                    NavigationLink {
-                        #if os(watchOS)
-                        Lec9_LandMarkDetailView(landmark: landmark)
-                        #elseif os(macOS)
-                        Lec10_LandMarkDetailView(landmark: landmark)
-                        #else
-                        Lec2_LandMarkDetailView(landmark: landmark)
-                        #endif
-                    } label: {
-                        Lec2_LandMarkRowView(landmark: landmark)
-                    }
-                    .tag(landmark)
-                }
-            }
-            .listStyle(.plain)
-            .navigationTitle(navTitle)
-            .frame(minWidth: 300)
-            .toolbar {
-                ToolbarItem {
-                    Menu {
-                        Picker("Category", selection: $filter) {
-                            ForEach(FilterCategory.allCases) { category in
-                                Text(category.rawValue).tag(category)
-                            }
-                        }
-                        .pickerStyle(.inline)
-                        
-                        Toggle(isOn: $showOnlyFavorite) {
-                            Label("Favorites only", systemImage: "star.fill")
-                        }
-                    } label: {
-                        Label("Filter", systemImage: "slider.horizontal.3")
-                    }
-                }
+    private var listView: some View {
+        #if os(watchOS)
+        List {
+            Toggle(isOn: $showOnlyFavorite) {
+                Text("Favorites only")
             }
             
-            Text("Select a Landmark")
+            ForEach(filterLandMark) { landmark in
+                NavigationLink {
+                    Lec9_LandMarkDetailView(landmark: landmark)
+                } label: {
+                    Lec2_LandMarkRowView(landmark: landmark)
+                }
+                .tag(landmark)
+            }
         }
+        #else
+        List(selection: $selectedLandmark) {
+            ForEach(filterLandMark) { landmark in
+                NavigationLink {
+                    #if os(macOS)
+                    Lec10_LandMarkDetailView(landmark: landmark)
+                    #else
+                    Lec2_LandMarkDetailView(landmark: landmark)
+                    #endif
+                } label: {
+                    Lec2_LandMarkRowView(landmark: landmark)
+                }
+                .tag(landmark)
+            }
+        }
+        #endif
+    }
+    
+    var body: some View {
+        NavigationView {
+            listView
+                .listStyle(.plain)
+                #if !os(watchOS)
+                .navigationTitle(navTitle)
+                .frame(minWidth: 300)
+                .toolbar {
+                    ToolbarItem {
+                        Menu {
+                            Picker("Category", selection: $filter) {
+                                ForEach(FilterCategory.allCases) { category in
+                                    Text(category.rawValue).tag(category)
+                                }
+                            }
+                            .pickerStyle(.inline)
+                            
+                            Toggle(isOn: $showOnlyFavorite) {
+                                Label("Favorites only", systemImage: "star.fill")
+                            }
+                        } label: {
+                            Label("Filter", systemImage: "slider.horizontal.3")
+                        }
+                    }
+                }
+                #else
+                .navigationTitle("Landmark")
+                #endif
+            
+            #if !os(watchOS)
+            Text("Select a Landmark")
+            #endif
+        }
+        #if !os(watchOS)
         .focusedValue(\.selectedLandmark, $modelData.landmakrs[index ?? 0])
+        #endif
     }
 }
 

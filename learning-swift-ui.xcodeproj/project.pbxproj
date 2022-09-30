@@ -57,6 +57,8 @@
 		A7522C1628E6CB6B0092A9B1 /* Lec10_LandmarkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7522C1528E6CB6B0092A9B1 /* Lec10_LandmarkDetailView.swift */; };
 		A7522C1828E6DA760092A9B1 /* Lec10_LandmarkCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7522C1728E6DA760092A9B1 /* Lec10_LandmarkCommands.swift */; };
 		A7522C1A28E6EAEA0092A9B1 /* Lec10_LandmarkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7522C1928E6EAEA0092A9B1 /* Lec10_LandmarkSettings.swift */; };
+		A7522C1B28E6FB7D0092A9B1 /* Lec10_LandmarkCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7522C1728E6DA760092A9B1 /* Lec10_LandmarkCommands.swift */; };
+		A7522C1C28E6FB7F0092A9B1 /* Lec10_LandmarkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7522C1928E6EAEA0092A9B1 /* Lec10_LandmarkSettings.swift */; };
 		A7867D9728CF38CF00F88192 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7867D9628CF38CF00F88192 /* Tests_iOS.swift */; };
 		A7867D9928CF38CF00F88192 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7867D9828CF38CF00F88192 /* Tests_iOSLaunchTests.swift */; };
 		A7867DA328CF38CF00F88192 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7867DA228CF38CF00F88192 /* Tests_macOS.swift */; };
@@ -641,6 +643,7 @@
 				A7BA178D28E5860200099C8C /* Lec8_PageViewController.swift in Sources */,
 				A744A0AE28E1B14500B5780D /* Lec2_LandMarkRowView.swift in Sources */,
 				A71374AC28D433C900E617C3 /* Lec1_CircleImageView.swift in Sources */,
+				A7522C1C28E6FB7F0092A9B1 /* Lec10_LandmarkSettings.swift in Sources */,
 				A7867DBB28CF4E0F00F88192 /* ContentViewLecture_2.swift in Sources */,
 				A744A0A828E1AD8500B5780D /* Lec2_ModelData.swift in Sources */,
 				A744A0B428E1B70500B5780D /* Lec2_LandMarkDetailView.swift in Sources */,
@@ -649,6 +652,7 @@
 				A744A09D28E1A75900B5780D /* Lec1_Mapview.swift in Sources */,
 				A744A0DE28E2CD1E00B5780D /* Lec5_GraphView.swift in Sources */,
 				A744A0BB28E1C32B00B5780D /* Lec3_FavoriteButton.swift in Sources */,
+				A7522C1B28E6FB7D0092A9B1 /* Lec10_LandmarkCommands.swift in Sources */,
 				A744A0B728E1C12300B5780D /* Lec2_ContentView.swift in Sources */,
 				A744A0D828E2B38900B5780D /* Lec5_GraphCapsuleView.swift in Sources */,
 				A744A0CF28E2AC4000B5780D /* Lec5_Hike.swift in Sources */,
